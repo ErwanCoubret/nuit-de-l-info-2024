@@ -22,7 +22,7 @@ export const Button: React.FC<ButtonProps> = ({
 					className={`sm
 			text-xs sm:text-md lg:text-lg xl:text-lg
             flex items-center
-            px-8 py-3 bg-${backgroundColor} text-${textColor}
+            px-8 py-3 bg-primary-500 text-${textColor}
 			font-bold rounded-lg transition-transform transform hover:scale-105
 			`}
 				>
