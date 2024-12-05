@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="CHEST" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 201.51 309.22">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #daae7b;
+      }
+
+      .cls-2 {
+        fill: #1b3765;
+      }
+
+      .cls-3 {
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="-8.13" y1="82.31" x2="220.18" y2="214.13" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#c93534"/>
+      <stop offset=".99" stop-color="#8e1a1d"/>
+    </linearGradient>
+  </defs>
+  <path class="cls-3" d="M0,246.47V89.35C0,45.88,35.24,10.64,78.72,10.64h44.08c43.47,0,78.72,35.24,78.72,78.72v157.11"/>
+  <rect class="cls-2" x=".04" y="246.47" width="201.43" height="62.76"/>
+  <path class="cls-1" d="M133.07,10.64c0,5.87-4.76,10.64-10.63,10.64h-43.37c-5.87,0-10.64-4.76-10.64-10.64h0c0-5.87,4.77-10.64,10.64-10.64h43.37c5.87,0,10.63,4.76,10.63,10.64h0Z"/>
+</svg>
