@@ -1,8 +1,9 @@
+import MarineSweeperSection from "@/app/components/root/game/minigames/arms/MarineSweeperSection";
 
 export default function ArmsGame() {
     return (
       <div>
-        Arms Game
+        <MarineSweeperSection />
       </div>
     );
   }
