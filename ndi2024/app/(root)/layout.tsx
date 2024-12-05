@@ -3,7 +3,7 @@ import { Fugaz_One, Rubik } from "next/font/google";
 import "../globals.css";
 
 export const metadata: Metadata = {
-	title: "NDI 2024",
+	title: "Flots",
 	description: "Nuit de l'info 2024",
 };
 

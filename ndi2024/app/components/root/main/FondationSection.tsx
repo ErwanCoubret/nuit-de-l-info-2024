@@ -10,7 +10,7 @@ const FondationSection = () => {
 			id="hero"
 		>
 			{/* ---------- CONTENT ---------- */}
-			<div className="relative z-20 px-4 w-4/5 md:w-3/5">
+			<div className="relative z-20 px-4 w-4/5 md:w-3/5" id="fondation">
 				<h1 className="text-3xl md:text-6xl lg:text-4xl text-center font-black tracking-tight opacity-0 animate-fade text-primary-700">
 					À PROPOS DE LA FONDATION
 				</h1>
@@ -74,7 +74,7 @@ const FondationSection = () => {
 
 					<div className="flex flex-col lg:flex-row gap-16 items-center">
 						<Image
-							src="/fondation/RFW_1.jpg"
+							src="/fondation/RFW_3.jpeg"
 							alt="RFW 1"
 							width={200}
 							height={200}
