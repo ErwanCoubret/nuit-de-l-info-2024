@@ -100,7 +100,7 @@ const FondationSection = () => {
 				<div className="flex justify-center opacity-0 animate-fade delay-400 mt-16">
 					<Button
 						text="DÉCOUVRIR LA FONDATION"
-						link={"/game/intro"}
+						link={"https://www.raceforwater.org/fr/"}
 						backgroundColor="primary-500"
 					/>
 				</div>
