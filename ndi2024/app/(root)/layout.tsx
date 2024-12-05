@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="fr">
-			<body className={`${fugazOne.variable} ${rubik.variable}`}>
+			<body className={`${fugazOne.variable} ${rubik.variable} font-sans`}>
 				{children}
 			</body>
 		</html>
