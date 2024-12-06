@@ -1,101 +1,152 @@
-import HeadSvg from '@/public/man/HEAD.svg';
-import ChestSvg from '@/public/man/CHEST.svg';
-import LArmSvg from '@/public/man/L_ARM.svg';
-import LLegSvg from '@/public/man/L_LEG.svg';
-import RLegSvg from '@/public/man/R_LEG.svg';
-import Link from 'next/link';
-import Image from 'next/image';
+"use client";
 
-function BodyPart({
-    svg,
-    right,
-    top,
-    link,
-    altText = 'Body Part',
-    transform = '',
-    size = '20vw', // Taille par défaut en pourcentage de l'écran
-  }: {
-    svg: string;
-    right: string;
-    top: string;
-    link: string;
-    altText?: string;
-    transform?: string;
-    size?: string; // Nouvelle prop pour la taille
-  }) {
-    return (
-      <Link
-        href={link}
-        className="absolute cursor-pointer hover:scale-105 transition-transform duration-200"
-        style={{
-          right,
-          top,
-          transform,
-          width: size,
-          height: size, // Taille dynamique des body parts
-        }}
-      >
-        <Image src={svg} alt={altText} layout="fill" objectFit="contain" />
-      </Link>
-    );
-  }
-  
-  function Man() {
-    return (
-      <div className="relative">
-        <BodyPart
-          svg={LArmSvg}
-          right="50%"
-          top="25vh"
-          link="/game/main/l-arm"
-          altText="Right Arm"
-          transform="rotate(135deg)"
-        />
-        <BodyPart
-          svg={LArmSvg}
-          right="30vw"
-          top="25vh"
-          link="/game/main/r-arm"
-          altText="Left Arm"
-          transform="rotate(-135deg)"
-        />
-        <BodyPart
-          svg={LLegSvg}
-          right="28vw"
-          top="55vh"
-          link="/game/main/l-leg"
-          altText="Left Leg"
-        />
-        <BodyPart
-          svg={RLegSvg}
-          right="18vw"
-          top="55vh"
-          link="/game/main/r-leg"
-          altText="Right Leg"
-        />
-        <BodyPart
-          svg={ChestSvg}
-          right="50%"
-          top="30vh"
-          link="/game/main/chest"
-          altText="Chest"
-        />
-        <BodyPart
-          svg={HeadSvg}
-          right="50%"
-          top="5vh"
-          link="/game/main/head"
-          altText="Head"
-        />
-      </div>
-    );
-  }
-  
-  export default function MainSection() {
-    return (
-      <div className="min-h-screen w-full flex items-center justify-center bg-black">
-          <Man />
-      </div>
-    );  
-  }
-  
+import HeadSvg from "@/public/man/HEAD.svg";
+import ChestSvg from "@/public/man/CHEST.svg";
+import LArmSvg from "@/public/man/L_ARM.svg";
+import LLegSvg from "@/public/man/L_LEG.svg";
+import RLegSvg from "@/public/man/R_LEG.svg";
+import Link from "next/link";
+import Image from "next/image";
+
+import { useGameContext } from "@/app/logic/gameContext";
+
+function Man() {
+	return (
+		<div className="relative flex justify-center items-center">
+			{/* Chest as the central element */}
+			<Link
+				href="/game/minigames/chest"
+				className="absolute cursor-pointer z-10"
+			>
+				<div className="relative xl:w-[10vw] xl:h-[10vw] lg:w-[20vw] lg:h-[20vw] w-[22vw] h-[22vw]">
+					<Image
+						src={ChestSvg}
+						alt="Chest"
+						layout="fill"
+						objectFit="contain"
+					/>
+				</div>
+			</Link>
+
+			{/* Head positioned above the chest */}
+			<Link
+				href="/game/minigames/head"
+				className="absolute cursor-pointer z-20"
+				style={{
+					transform: "translate(-50%, -145%)", // Position relative to chest
+					top: "50%", // Align vertically
+					left: "50%", // Align horizontally
+				}}
+			>
+				<div className="relative xl:w-[10vw] xl:h-[10vw] lg:w-[20vw] lg:h-[20vw] w-[22vw] h-[22vw]">
+					<Image
+						src={HeadSvg}
+						alt="Head"
+						layout="fill"
+						objectFit="contain"
+					/>
+				</div>
+			</Link>
+
+			{/* Left Arm */}
+			<Link
+				href="/game/minigames/arms"
+				className="absolute cursor-pointer"
+				style={{
+					transform: "translate(-100%, -100%) rotate(-45deg)", // Position relative to chest
+					top: "50%",
+					left: "50%",
+				}}
+			>
+				<div className="relative xl:w-[10vw] xl:h-[10vw] lg:w-[20vw] lg:h-[20vw] w-[22vw] h-[22vw]">
+					<Image
+						src={LArmSvg}
+						alt="Left Arm"
+						layout="fill"
+						objectFit="contain"
+					/>
+				</div>
+			</Link>
+
+			{/* Right Arm */}
+			<Link
+				href="/game/minigames/arms"
+				className="absolute cursor-pointer"
+				style={{
+					transform: "translate(0%, -100%) rotate(45deg)", // Position relative to chest
+					top: "50%",
+					left: "50%",
+				}}
+			>
+				<div className="relative xl:w-[10vw] xl:h-[10vw] lg:w-[20vw] lg:h-[20vw] w-[22vw] h-[22vw]">
+					<Image
+						src={LArmSvg}
+						alt="Right Arm"
+						layout="fill"
+						objectFit="contain"
+					/>
+				</div>
+			</Link>
+
+			{/* Left Leg */}
+			<Link
+				href="/game/minigames/legs"
+				className="absolute cursor-pointer"
+				style={{
+					transform: "translate(-100%, 10%) rotate(45deg)", // Position relative to chest
+					top: "50%",
+					left: "50%",
+				}}
+			>
+				<div className="relative xl:w-[10vw] xl:h-[10vw] lg:w-[20vw] lg:h-[20vw] w-[22vw] h-[22vw] ">
+					<Image
+						src={LLegSvg}
+						alt="Left Leg"
+						layout="fill"
+						objectFit="contain"
+					/>
+				</div>
+			</Link>
+
+			{/* Right Leg */}
+			<Link
+				href="/game/main/legs"
+				className="absolute cursor-pointer"
+				style={{
+					transform: "translate(0%, 10%) rotate(-45deg)", // Position relative to chest
+					top: "50%",
+					left: "50%",
+				}}
+			>
+				<div className="relative xl:w-[10vw] xl:h-[10vw] lg:w-[20vw] lg:h-[20vw] w-[22vw] h-[22vw]">
+					<Image
+						src={RLegSvg}
+						alt="Right Leg"
+						layout="fill"
+						objectFit="contain"
+					/>
+				</div>
+			</Link>
+		</div>
+	);
+}
+
+export default function MainSection() {
+	const { flags, updateFlag } = useGameContext();
+
+	return (
+		<div className="min-h-screen w-full flex flex-col items-center justify-center bg-primary-700 text-white">
+			<div className="absolute top-20 flex flex-col justify-center lg:mb-0 mx-auto text-center p-5">
+				<h1 className="text-2xl font-black text-primary-400 text-nowrap">
+					SAUVEZ LE NAUFRAGÉ
+				</h1>
+
+        <p className="text-white">
+          Cliquez sur une partie du corps du naufragé pour lancer un mini-jeu
+        </p>
+			</div>
+
+			<Man />
+		</div>
+	);
+}

@@ -32,18 +32,6 @@ const Navbar = () => {
 
 				<div className={`flex lg:hidden`}></div>
 
-				<div
-					className={`flex lg:hidden justify-center items-center drop-shadow-md"
-					}`}
-				>
-					<Image
-						src={"/logo/flots.svg"}
-						alt="logo with text"
-						width={100}
-						height={200}
-						className="object-contain block select-none pointer-events-auto"
-					/>
-				</div>
 
 				<ul
 					className={`hidden lg:flex items-center backdrop-blur-sm bg-primary-500 rounded-lg p-1.5 drop-shadow-lg shadow-lg text-white uppercase font-bold text-base pointer-events-auto`}
@@ -106,7 +94,7 @@ const Navbar = () => {
 						<div className="justify-center lg:flex items-center">
 							<Image
 								src={
-									"/images/eos-branding-assets/logo_text.svg"
+									"/logo/flots.svg"
 								}
 								alt="logo with text"
 								width={110}

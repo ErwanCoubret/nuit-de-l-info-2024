@@ -50,7 +50,7 @@ const Footer = () => {
 							</li>
 							<li>
 								<Link href="https://www.linkedin.com/in/ryan-belaib-978a69294/">
-									Rayan Belaib
+									Ryan Belaib
 								</Link>
 							</li>
 							<li>
