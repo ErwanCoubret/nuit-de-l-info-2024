@@ -42,6 +42,7 @@ export default function Demineur() {
 		initialGrid(rows, cols, DEM_NUMBERS[0])
 	);
 	const [gameOver, setGameOver] = useState(false);
+	const [gamewin, setGamewin] = useState(false);
 	const [flagCount, setFlagCount] = useState(0);
 	const [firstClick, setFirstClick] = useState(false);
 	const [time, setTime] = useState(0);
@@ -170,7 +171,7 @@ export default function Demineur() {
 		);
 
 		if (allBombsFlagged) {
-			setGameOver(true); // Fin de partie lorsque toutes les bombes sont bien signalées
+			setGamewin(true); // Fin de partie lorsque toutes les bombes sont bien signalées
 			setTimerActive(false); // Stop the timer
 		}
 	};
@@ -212,7 +213,7 @@ export default function Demineur() {
 		);
 
 		if (allBombsFlagged) {
-			setGameOver(true); // End game when all bombs are correctly flagged
+			setGamewin(true); // End game when all bombs are correctly flagged
 			setTimerActive(false); // Stop the timer
 		}
 	};
@@ -241,11 +242,11 @@ export default function Demineur() {
 	}, [rows]);
 
 	useEffect(() => {
-		if (gameOver) {
+		if (gamewin) {
       window.localStorage.setItem("armsFlag", "1");
 			window.location.href = "/game/main";
 		}
-	}, [gameOver]);
+	}, [gamewin]);
 
 	return (
 		<>
@@ -281,7 +282,7 @@ export default function Demineur() {
 								}}
 							>
 								<p style={{ marginBottom: "1em" }}>
-									Le Démineur est un jeu de logique où vous
+									Le MarineSweeper est un jeu de logique où vous
 									devez découvrir toutes les cases d&apos;une
 									grille sans cliquer sur celles qui cachent
 									des déchets.
@@ -294,7 +295,7 @@ export default function Demineur() {
 								</p>
 								<p style={{ marginBottom: "1em" }}>
 									Vous pouvez marquer les cases suspectes avec
-									un drapeau. Le but est de révéler toutes les
+									un drapeau (clic droit ou appui prolongé sur mobile). Le but est de révéler toutes les
 									cases sans déchets pour gagner.
 								</p>
 							</div>
