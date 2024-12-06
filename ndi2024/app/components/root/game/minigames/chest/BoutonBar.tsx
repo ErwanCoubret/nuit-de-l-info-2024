@@ -6,12 +6,12 @@ interface BoutonProps {
     bgColor: string;
     hoverBgColor: string;
     score: number;
-    setScore: any;
-    answer: any;
+    setScore: (value: number) => void;
+    answer: boolean;
     answerText: string;
     help: string;
     currentQuestion: number;
-    setCurrentQuestion: any;
+    setCurrentQuestion: (value: number) => void;
 }
 
 export default function BoutonBar({ text, bgColor, hoverBgColor, score, setScore, answer, answerText, help = "", currentQuestion, setCurrentQuestion }: BoutonProps) {
