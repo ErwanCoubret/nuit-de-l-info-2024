@@ -1,8 +1,18 @@
+"use client";
+
 import { Button } from "@/app/components/utils/Button";
+import { useEffect } from "react";
 import { FaFlag, FaVirus } from "react-icons/fa";
 import { GiClick } from "react-icons/gi";
 
 export default function IntroSection() {
+	useEffect(() => {
+		window.localStorage.setItem("flagArms", "false");
+		window.localStorage.setItem("flagHead", "false");
+		window.localStorage.setItem("flagLegs", "false");
+		window.localStorage.setItem("flagChest", "false");
+	}, []);
+
 	return (
 		<section
 			className="relative min-h-screen flex flex-col items-center justify-center bg-primary-800 py-20"
@@ -41,14 +51,16 @@ export default function IntroSection() {
 						<FaFlag className="text-2xl" />
 
 						<p className="text-md md:text-xl text-white">
-                        Menez à bien le mini-jeu pour désinfecter la partie du corps ciblée
+							Menez à bien le mini-jeu pour désinfecter la partie
+							du corps ciblée
 						</p>
 					</div>
 					<div className="flex gap-4 items-center lg:text-2xl md:w-3/5 mx-auto opacity-0 animate-fade delay-900">
 						<FaVirus className="text-2xl" />
 
 						<p className="text-md md:text-xl text-white">
-                        Désinfectez toutes les parties du corps pour sauver le naufragé
+							Désinfectez toutes les parties du corps pour sauver
+							le naufragé
 						</p>
 					</div>
 				</div>

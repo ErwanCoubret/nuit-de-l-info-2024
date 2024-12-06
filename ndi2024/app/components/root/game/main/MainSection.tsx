@@ -8,7 +8,7 @@ import RLegSvg from "@/public/man/R_LEG.svg";
 import Link from "next/link";
 import Image from "next/image";
 
-import { useGameContext } from "@/app/logic/gameContext";
+import { useEffect, useState } from "react";
 
 function Man() {
 	return (
@@ -132,7 +132,18 @@ function Man() {
 }
 
 export default function MainSection() {
-	const { flags, updateFlag } = useGameContext();
+	const [armsFlag, setArmsFlag] = useState(false);
+  const [headFlag, setHeadFlag] = useState(false);
+  const [chestFlag, setChestFlag] = useState(false);
+  const [legsFlag, setLegsFlag] = useState(false);
+
+  useEffect(() => {
+    window.localStorage.getItem("armsFlag") === "1" && setArmsFlag(true);
+    window.localStorage.getItem("headFlag") === "1" && setHeadFlag(true);
+    window.localStorage.getItem("chestFlag") === "1" && setChestFlag(true);
+    window.localStorage.getItem("legsFlag") === "1" && setLegsFlag(true);
+  }
+  , []);
 
 	return (
 		<div className="min-h-screen w-full flex flex-col items-center justify-center bg-primary-700 text-white">
@@ -141,9 +152,18 @@ export default function MainSection() {
 					SAUVEZ LE NAUFRAGÉ
 				</h1>
 
-        <p className="text-white">
-          Cliquez sur une partie du corps du naufragé pour lancer un mini-jeu
-        </p>
+				<p className="text-white">
+					Cliquez sur une partie du corps du naufragé pour lancer un
+					mini-jeu
+				</p>
+
+				<div className="flex gap-5">
+					display flags :
+          <p>HEAD : {headFlag ? "true" : "false"}</p>
+          <p>CHEST : {chestFlag ? "true" : "false"}</p>
+          <p>ARMS : {armsFlag ? "true" : "false"}</p>
+          <p>LEGS : {legsFlag ? "true" : "false"}</p> 
+				</div>
 			</div>
 
 			<Man />
