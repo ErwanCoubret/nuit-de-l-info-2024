@@ -4,6 +4,7 @@ import { Button } from "@/app/components/utils/Button";
 import { useEffect } from "react";
 import { FaFlag, FaVirus } from "react-icons/fa";
 import { GiClick } from "react-icons/gi";
+import { LuWaves } from "react-icons/lu";
 
 export default function IntroSection() {
 	useEffect(() => {
@@ -68,6 +69,7 @@ export default function IntroSection() {
 				<div className="flex justify-center mt-5 opacity-0 animate-fade delay-1000">
 					<Button
 						text="COMMENCER"
+                        icon={LuWaves}
 						link={"/game/main"}
 						backgroundColor="primary-500"
 					/>

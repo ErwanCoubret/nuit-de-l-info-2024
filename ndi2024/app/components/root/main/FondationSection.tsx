@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Button } from "../../utils/Button";
+import { FaLink } from "react-icons/fa6";
 
 const FondationSection = () => {
 	return (
@@ -182,6 +183,7 @@ const FondationSection = () => {
 				<div className="flex justify-center opacity-0 animate-fade delay-400 mt-16">
 					<Button
 						text="DÉCOUVRIR LA FONDATION"
+						icon={FaLink}
 						link={"https://www.raceforwater.org/fr/"}
 						backgroundColor="primary-500"
 					/>

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Button } from "../../utils/Button";
+import { FaCirclePlay, FaEye } from "react-icons/fa6";
 
 const HeroSection = () => {
 	return (
@@ -22,9 +23,20 @@ const HeroSection = () => {
 					Sauvez le naufragé en vous sensibilisant aux dangers
 					menaçant nos mers et océans.
 				</p>
-
-				<div className="flex justify-center mt-5 opacity-0 animate-fade delay-400">
-					<Button text="JOUER" link={"/game/intro"} backgroundColor="primary-500" />
+				<div className="flex flex-col lg:flex-row gap-4 mt-5 opacity-0 animate-fade delay-400 items-center lg:justify-center">
+					<Button
+						icon={FaCirclePlay}
+						text="JOUER"
+						link={"/game/intro"}
+						backgroundColor="primary-500"
+					/>
+					<Button
+						icon={FaEye}
+						outline
+						text="DÉCOUVRIR L'ASSOCIATION"
+						link={"#fondation"}
+						backgroundColor="primary-500"
+					/>
 				</div>
 			</div>
 

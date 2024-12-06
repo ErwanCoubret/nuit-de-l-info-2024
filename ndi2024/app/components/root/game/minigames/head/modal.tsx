@@ -1,4 +1,5 @@
 import { useEffect, ReactNode } from 'react';
+import { IoCloseSharp } from 'react-icons/io5';
 
 interface ModalProps {
   showModal: boolean;
@@ -51,7 +52,7 @@ const Modal = ({ showModal, setShowModal, title, children, score, setScore, curr
                 className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
                 onClick={() => setShowModal(false)}
               >
-                ×
+                <IoCloseSharp />
               </button>
           </div>
         </div>

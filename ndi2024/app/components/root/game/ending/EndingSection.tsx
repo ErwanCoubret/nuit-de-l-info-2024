@@ -6,6 +6,13 @@ import { FaFlag, FaVirus } from "react-icons/fa";
 import { GiClick } from "react-icons/gi";
 
 export default function EndingSection() {
+    useEffect(() => {
+		window.localStorage.setItem("flagArms", "0");
+		window.localStorage.setItem("flagHead", "0");
+		window.localStorage.setItem("flagLegs", "0");
+		window.localStorage.setItem("flagChest", "0");
+	}, []);
+    
 	return (
 		<section
 			className="relative min-h-screen flex flex-col items-center justify-center bg-primary-800 py-20"

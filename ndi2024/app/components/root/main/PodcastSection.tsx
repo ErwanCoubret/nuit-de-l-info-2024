@@ -9,7 +9,7 @@ const PodcastSection = () => {
 	return (
 		<section
 			className="relative min-h-screen flex flex-col items-center justify-center bg-primary-200 py-20"
-			id="hero"
+			id="podcast"
 		>
 			{/* ---------- CONTENT ---------- */}
 			<div className="relative z-20 px-4 w-4/5 md:w-3/5" id="fondation">

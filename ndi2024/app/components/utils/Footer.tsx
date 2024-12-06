@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 const Footer = () => {
@@ -59,7 +58,7 @@ const Footer = () => {
 								</Link>
 							</li>
 							<li>
-								<Link href="https://www.linkedin.com/in/erwan-coubret/">
+								<Link href="https://www.erwancoubret.fr">
 									Erwan Coubret
 								</Link>
 							</li>

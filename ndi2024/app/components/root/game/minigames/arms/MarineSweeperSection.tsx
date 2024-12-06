@@ -12,10 +12,8 @@ import {
 
 import Rectangle from "./rectangle";
 import Bouton from "./bouton";
-import Slider from "./slider";
 import Modal from "./modal";
 import { RiInformation2Line } from "react-icons/ri";
-import { useRouter } from "next/router";
 
 const DEM_CASE = "/arms/DemCase.png";
 const DEM_FLAG = "/arms/DemFlag.png";
@@ -41,7 +39,6 @@ export default function Demineur() {
 
 	const rows = sliderValue;
 	const cols = sliderValue;
-	// const cellSize = 16 / rows * 20;
 	const [cellSize, setCellSize] = useState((16 / rows) * 50);
 	const [windowWidth, setWindowWidth] = useState(500);
 
@@ -284,7 +281,7 @@ export default function Demineur() {
 						size={40}
 					/>
 					<div
-						className="hidden md:flex flex-row text-xl gap-1 mb-5 bg-white p-2 items-center rounded-lg cursor-pointer"
+						className="hidden md:flex flex-row text-xl gap-1 mb-5 bg-white px-4 py-2 items-center rounded-lg cursor-pointer"
 						onClick={handleRule}
 					>
 						<RiInformation2Line
