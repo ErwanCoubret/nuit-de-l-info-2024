@@ -18,12 +18,12 @@ export default function IntroSection() {
 			className="relative min-h-screen flex flex-col items-center justify-center bg-primary-800 py-20"
 			id="hero"
 		>
-			<div className="relative z-20 flex flex-col gap-8 px-4 w-4/5 md:w-3/5 drop-shadow-2xl">
+			<div className="relative z-20 flex flex-col gap-5 lg:gap-8 px-4 w-4/5 md:w-3/5 drop-shadow-2xl">
 				<h1 className="text-3xl md:text-6xl lg:text-5xl italic tracking-tight opacity-0 font-black animate-fade drop-shadow-2xl text-primary-400 text-center">
 					LE JEU
 				</h1>
 
-				<div className="flex flex-col gap-4 text-center">
+				<div className="flex flex-col gap-2 lg:gap-4 text-center">
 					<p className="text-md md:text-xl lg:text-2xl md:w-3/5 mx-auto opacity-0 animate-fade delay-200 text-white">
 						Les différentes parties du corps du naufragé sont toutes
 						infectées par un virus inconnu...
@@ -38,7 +38,7 @@ export default function IntroSection() {
 					FONCTIONNEMENT
 				</h1>
 
-				<div className="flex flex-col gap-8 text-white">
+				<div className="flex flex-col gap-4 lg:gap-8 text-white">
 					<div className="flex gap-4 items-center lg:text-2xl md:w-3/5 mx-auto opacity-0 animate-fade delay-700">
 						<GiClick className="text-2xl" />
 

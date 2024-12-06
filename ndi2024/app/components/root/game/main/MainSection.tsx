@@ -24,15 +24,15 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 function Man({
-  armsFlag,
-  headFlag,
-  chestFlag,
-  legsFlag,
+	armsFlag,
+	headFlag,
+	chestFlag,
+	legsFlag,
 }: {
-  armsFlag: boolean;
-  headFlag: boolean;
-  chestFlag: boolean;
-  legsFlag: boolean;
+	armsFlag: boolean;
+	headFlag: boolean;
+	chestFlag: boolean;
+	legsFlag: boolean;
 }) {
 	return (
 		<div className="relative flex justify-center items-center opacity-0 animate-fade delay-400">
@@ -156,32 +156,55 @@ function Man({
 
 export default function MainSection() {
 	const [armsFlag, setArmsFlag] = useState(false);
-  const [headFlag, setHeadFlag] = useState(false);
-  const [chestFlag, setChestFlag] = useState(false);
-  const [legsFlag, setLegsFlag] = useState(false);
+	const [headFlag, setHeadFlag] = useState(false);
+	const [chestFlag, setChestFlag] = useState(false);
+	const [legsFlag, setLegsFlag] = useState(false);
 
-  useEffect(() => {
-    window.localStorage.getItem("armsFlag") === "1" && setArmsFlag(true);
-    window.localStorage.getItem("headFlag") === "1" && setHeadFlag(true);
-    window.localStorage.getItem("chestFlag") === "1" && setChestFlag(true);
-    window.localStorage.getItem("legsFlag") === "1" && setLegsFlag(true);
-  }
-  , []);
+	useEffect(() => {
+		window.localStorage.getItem("armsFlag") === "1" && setArmsFlag(true);
+		window.localStorage.getItem("headFlag") === "1" && setHeadFlag(true);
+		window.localStorage.getItem("chestFlag") === "1" && setChestFlag(true);
+		window.localStorage.getItem("legsFlag") === "1" && setLegsFlag(true);
+	}, []);
 
 	return (
-		<div className="min-h-screen w-full flex flex-col items-center justify-center bg-primary-700 text-white">
+		<div className="min-h-screen w-full flex flex-col items-center justify-center bg-primary-800 text-white">
 			<div className="absolute top-20 flex flex-col justify-center lg:mb-0 mx-auto text-center p-5">
 				<h1 className="text-2xl lg:text-4xl font-black text-primary-400 text-nowrap opacity-0 animate-fade">
 					SAUVEZ LE NAUFRAGÉ
 				</h1>
 
 				<p className="text-white text-lg lg:text-xl opacity-0 animate-fade delay-200">
-					Cliquez sur une partie malade du corps du naufragé pour lancer un
-					mini-jeu
+					Cliquez sur une{" "}
+					<span className="mx-1 font-bold text-red-500">
+						{" "}
+						partie malade{" "}
+					</span>{" "}
+					du corps du naufragé pour lancer un mini-jeu
 				</p>
 			</div>
 
-			<Man armsFlag={armsFlag} headFlag={headFlag} chestFlag={chestFlag} legsFlag={legsFlag} />
+			<Man
+				armsFlag={armsFlag}
+				headFlag={headFlag}
+				chestFlag={chestFlag}
+				legsFlag={legsFlag}
+			/>
+
+			<div className="absolute bottom-20 flex flex-col justify-center lg:mb-0 mx-auto text-center p-5">
+				<p className="text-white text-lg lg:text-xl opacity-0 animate-fade delay-600 italic">
+					Encore
+					<span className="mx-1 font-bold text-red-500">
+						{4 -
+							(armsFlag ? 1 : 0) -
+							(headFlag ? 1 : 0) -
+							(chestFlag ? 1 : 0) -
+							(legsFlag ? 1 : 0)}{" "}
+						parties
+					</span>
+					malades à soigner
+				</p>
+			</div>
 		</div>
 	);
 }
