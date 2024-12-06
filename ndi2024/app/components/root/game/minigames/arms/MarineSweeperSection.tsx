@@ -31,16 +31,9 @@ const DEM_NUMBERS = [
 ];
 
 export default function Demineur() {
-	const [sliderValue, setSliderValue] = useState(10);
-	const [propValue, setPropValue] = useState(1);
-	const [numBombs, setNumBombs] = useState(
-		Math.floor((propValue / 100) * sliderValue ** 2)
-	);
-
-	const rows = sliderValue;
-	const cols = sliderValue;
+	const rows = 10;
+	const cols = 10;
 	const [cellSize, setCellSize] = useState((16 / rows) * 50);
-	const [windowWidth, setWindowWidth] = useState(500);
 
 	const [cellImages, setCellImages] = useState(
 		initialGrid(rows, cols, DEM_CASE)
@@ -53,7 +46,6 @@ export default function Demineur() {
 	const [firstClick, setFirstClick] = useState(false);
 	const [time, setTime] = useState(0);
 	const [timerActive, setTimerActive] = useState(false);
-	const [showModal, setShowModal] = useState(false);
 	const [load, setLoad] = useState(true);
 	const [rule, setRule] = useState(false);
 
@@ -69,16 +61,8 @@ export default function Demineur() {
 		return () => clearInterval(timer);
 	}, [timerActive, time]);
 
-	const formatTime = (time: number) => {
-		const minutes = Math.floor(time / 60)
-			.toString()
-			.padStart(2, "0");
-		const seconds = (time % 60).toString().padStart(2, "0");
-		return `${minutes}:${seconds}`;
-	};
 
 	const handleReset = () => {
-		setNumBombs(Math.floor((propValue / 100) * sliderValue ** 2));
 		setCellImages(initialGrid(rows, cols, DEM_CASE));
 		setGridReveal(initialGrid(rows, cols, DEM_NUMBERS[0]));
 		setGameOver(false);
@@ -89,15 +73,11 @@ export default function Demineur() {
 		setLoad(true);
 	};
 
-	useEffect(() => {
-		handleReset();
-	}, [sliderValue, propValue]);
-
 	const handleFirstClick = (row: number, col: number) => {
 		const newGridReveal = initializeGridReveal(
 			rows,
 			cols,
-			numBombs,
+			12,
 			row,
 			col,
 			DEM_NUMBERS,
@@ -192,7 +172,6 @@ export default function Demineur() {
 		if (allBombsFlagged) {
 			setGameOver(true); // Fin de partie lorsque toutes les bombes sont bien signalées
 			setTimerActive(false); // Stop the timer
-			setShowModal(true); // Victory Modal
 		}
 	};
 
@@ -235,7 +214,6 @@ export default function Demineur() {
 		if (allBombsFlagged) {
 			setGameOver(true); // End game when all bombs are correctly flagged
 			setTimerActive(false); // Stop the timer
-			setShowModal(true); // Victory Modal
 		}
 	};
 
@@ -250,7 +228,6 @@ export default function Demineur() {
 					? (16 / rows) * (window.innerWidth / 18)
 					: (16 / rows) * 42;
 			setCellSize(newCellSize);
-			setWindowWidth(window.innerWidth);
 		}
 
 		// Update cellSize on initial render
@@ -305,7 +282,7 @@ export default function Demineur() {
 							>
 								<p style={{ marginBottom: "1em" }}>
 									Le Démineur est un jeu de logique où vous
-									devez découvrir toutes les cases d'une
+									devez découvrir toutes les cases d&apos;une
 									grille sans cliquer sur celles qui cachent
 									des déchets.
 								</p>
@@ -347,7 +324,7 @@ export default function Demineur() {
 					</div>
 					<div className="flex mt-5 gap-5">
 						<Rectangle
-							content={`${flagCount} / ${numBombs}`}
+							content={`${flagCount} / ${12}`}
 							image={"/arms/DemFlag.png"}
 							className=""
 						/>

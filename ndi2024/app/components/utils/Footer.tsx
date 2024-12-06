@@ -33,9 +33,8 @@ const Footer = () => {
 					{/* Section Ressources */}
 					<div>
 						<h2 className="font-bold text-lg mb-4">
-							📚 Linkedin de l'équipe
+							📚 Linkedin de l&apos;équipe
 						</h2>
-						<p className="mb-4 italic text-white">(svp un stage)</p>
 						<ul className="space-y-2">
 							<li>
 								<Link href="https://www.linkedin.com/in/antoine-bretzner-17a501331/">

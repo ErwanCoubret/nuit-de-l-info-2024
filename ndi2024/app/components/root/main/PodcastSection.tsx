@@ -1,7 +1,5 @@
 "use client";
 
-import Image from "next/image";
-import { Button } from "../../utils/Button";
 import YoutubeEmbed from "../../utils/YoutubeVideo";
 import { AiFillSound } from "react-icons/ai";
 

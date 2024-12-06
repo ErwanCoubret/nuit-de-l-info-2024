@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import Question from "./Question";
 import Reponse from "./Reponse";
 
-const ModalENd = ({  resultMessage, score } :
-    { resultMessage: string, score: number }) => {
+const ModalENd = ({  resultMessage } :
+    { resultMessage: string }) => {
 
     useEffect(() => {
         if (resultMessage.includes("Félicitations")) {
@@ -154,7 +154,7 @@ const Text = () => {
 
 			{/* Message des résultats */}
 			{resultMessage && (
-                <ModalENd resultMessage={resultMessage} score={calculateScore()} />
+                <ModalENd resultMessage={resultMessage} />
 			)}
 		</div>
 	);

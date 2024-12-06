@@ -1,11 +1,5 @@
 "use client";
 
-import HeadSvg from "@/public/man/HEAD.svg";
-import ChestSvg from "@/public/man/CHEST.svg";
-import LArmSvg from "@/public/man/L_ARM.svg";
-import LLegSvg from "@/public/man/L_LEG.svg";
-import RLegSvg from "@/public/man/R_LEG.svg";
-
 import HeadGreenSvg from "@/public/man/HEAD_1_GREEN.svg";
 import ChestGreenSvg from "@/public/man/CHEST_1_GREEN.svg";
 import LArmGreenSvg from "@/public/man/L_ARM_1_GREEN.svg";

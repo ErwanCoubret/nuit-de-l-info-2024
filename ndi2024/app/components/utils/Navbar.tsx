@@ -1,12 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { IoDocumentText, IoHome } from "react-icons/io5";
-import { IoMdCube } from "react-icons/io";
-import { FaEnvelope } from "react-icons/fa";
-import { usePathname } from "next/navigation";
 import { FaSailboat } from "react-icons/fa6";
 import { AiFillSound } from "react-icons/ai";
 

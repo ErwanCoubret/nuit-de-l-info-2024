@@ -2,8 +2,6 @@
 
 import { Button } from "@/app/components/utils/Button";
 import { useEffect } from "react";
-import { FaFlag, FaVirus } from "react-icons/fa";
-import { GiClick } from "react-icons/gi";
 
 export default function EndingSection() {
     useEffect(() => {
