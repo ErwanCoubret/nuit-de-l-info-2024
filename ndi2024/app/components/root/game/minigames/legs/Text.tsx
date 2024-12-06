@@ -4,38 +4,34 @@ import { useEffect, useState } from "react";
 import Question from "./Question";
 import Reponse from "./Reponse";
 
-const ModalENd = ({  resultMessage } :
-    { resultMessage: string }) => {
+const ModalENd = ({ resultMessage }: { resultMessage: string }) => {
+	useEffect(() => {
+		if (resultMessage.includes("Félicitations")) {
+			window.localStorage.setItem("legsFlag", "1");
+		}
+	}, []);
 
-    useEffect(() => {
-        if (resultMessage.includes("Félicitations")) {
-            window.localStorage.setItem("legsFlag", "1");
-        }
-    }, []);
-
-    return (
-        <div className="mt-8 bg-white text-black p-4 rounded-md shadow-md text-center mx-8">
-					<p>{resultMessage}</p>
-					{!resultMessage.includes("Félicitations") ? (
-						<button
-							onClick={() => window.location.reload()}
-							className="mt-4 bg-red-500 text-white font-bold py-2 px-4 rounded"
-						>
-							Rejouer
-						</button>
-					) : (
-						<button
-							onClick={() =>
-								(window.location.href = "/game/main")
-							}
-							className="mt-4 bg-green-500 text-white font-bold py-2 px-4 rounded"
-						>
-							Continuer
-						</button>
-					)}
-				</div>
-    )
-}
+	return (
+		<div className="mt-8 bg-white text-black p-4 rounded-md shadow-md text-center mx-8">
+			<p>{resultMessage}</p>
+			{!resultMessage.includes("Félicitations") ? (
+				<button
+					onClick={() => window.location.reload()}
+					className="mt-4 bg-red-500 text-white font-bold py-2 px-4 rounded"
+				>
+					Rejouer
+				</button>
+			) : (
+				<button
+					onClick={() => (window.location.href = "/game/main")}
+					className="mt-4 bg-green-500 text-white font-bold py-2 px-4 rounded"
+				>
+					Continuer
+				</button>
+			)}
+		</div>
+	);
+};
 
 const Text = () => {
 	const [ans1, setAns1] = useState("");
@@ -126,7 +122,9 @@ const Text = () => {
 				<div className="bg-primary-300 w-full px-8 pt-2 pb-8 rounded-md">
 					<Question
 						questionNumber={4}
-						questionText="Les _____ montantes, semblables à des muscles tendus, peuvent entraîner des catastrophes naturelles si elles sont amplifiées par le réchauffement climatique."
+						questionText="Les océans, tels les ___ d’un coureur, doivent rester en bonne santé, car
+							une exploitation excessive risque de causer des déséquilibres écologiques
+							majeurs."
 					/>
 					<Reponse
 						ans={ans4}
@@ -153,9 +151,7 @@ const Text = () => {
 			)}
 
 			{/* Message des résultats */}
-			{resultMessage && (
-                <ModalENd resultMessage={resultMessage} />
-			)}
+			{resultMessage && <ModalENd resultMessage={resultMessage} />}
 		</div>
 	);
 };
