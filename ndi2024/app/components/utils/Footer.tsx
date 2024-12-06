@@ -72,7 +72,7 @@ const Footer = () => {
 
 						<p className="mb-4 italic text-white">
 							Ce site a été réalisé par des membres de la communauté Eos,
-							une communauté de jeunes lanceurs projets dans la tech
+							une communauté de jeunes lanceurs de projets dans la tech
 						</p>
 						
 						<ul className="space-y-2">
@@ -85,9 +85,9 @@ const Footer = () => {
 			</div>
 
 			<div className="container border-t flex flex-col lg:flex-row justify-between mx-auto px-4 py-8">
-				<p className="text-white">© 2024 Eos. Tous droits réservés.</p>
+				<p className="text-white">© 2024 Babteam. Tous droits réservés.</p>
 				<Link href="#" className="font-bold">
-					Informations Légales (not yet implemented)
+					Informations Légales (pas eu le temps)
 				</Link>
 			</div>
 		</footer>

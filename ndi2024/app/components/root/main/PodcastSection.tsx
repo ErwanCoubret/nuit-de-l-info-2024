@@ -16,7 +16,7 @@ const PodcastSection = () => {
 					<h1 className="font-black tracking-tight">Le podcast</h1>
 				</div>
 
-				<p className="text-md md:text-lg lg:text-xl text-center mt-4 opacity-0 animate-fade delay-200 text-primary-700 w-full mx-auto mt-16">
+				<p className="text-md md:text-lg lg:text-xl text-center opacity-0 animate-fade delay-200 text-primary-700 w-full mx-auto mt-16">
 					Voici un podcast réalisé par la fondation avec le chercheur Florian Sévellec.
 				</p>
 

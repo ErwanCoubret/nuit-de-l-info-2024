@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import QuestionBar from "./QuestionBar";
 import Bar from "./Bar";
 
-function GoodEnd({ score }: { score: number }) {
+function GoodEnd() {
 	useEffect(() => {
-		window.localStorage.setItem("headFlag", "1");
+		window.localStorage.setItem("chestFlag", "1");
 	}, []);
 
 	return (
@@ -25,7 +25,7 @@ function GoodEnd({ score }: { score: number }) {
 	);
 }
 
-function BadEnd({ score }: { score: number }) {
+function BadEnd() {
 	return (
 		<div className="w-full flex flex-col items-center justify-center text-center bg-white p-5 rounded-lg">
 			<p className="text-2xl font-bold w-3/4 mb-4">
@@ -84,10 +84,10 @@ export default function QuizBar() {
 				)}
 				{/* Fin du quiz */}
 				{currentQuestion === 4 && score >= 0 && (
-					<GoodEnd score={score} />
+					<GoodEnd />
 				)}
 				{/* Échec au quiz */}
-				{currentQuestion === 4 && score < 0 && <BadEnd score={score} />}
+				{currentQuestion === 4 && score < 0 && <BadEnd />}
                 <div className="w-full max-w-3xl mt-8">
 				    <Bar score={score} maxScore={15} />
 			    </div>
