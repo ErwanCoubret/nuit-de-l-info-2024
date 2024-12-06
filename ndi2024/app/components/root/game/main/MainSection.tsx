@@ -5,14 +5,37 @@ import ChestSvg from "@/public/man/CHEST.svg";
 import LArmSvg from "@/public/man/L_ARM.svg";
 import LLegSvg from "@/public/man/L_LEG.svg";
 import RLegSvg from "@/public/man/R_LEG.svg";
+
+import HeadGreenSvg from "@/public/man/HEAD_1_GREEN.svg";
+import ChestGreenSvg from "@/public/man/CHEST_1_GREEN.svg";
+import LArmGreenSvg from "@/public/man/L_ARM_1_GREEN.svg";
+import LLegGreenSvg from "@/public/man/L_LEG_1_GREEN.svg";
+import RLegGreenSvg from "@/public/man/R_LEG_1_GREEN.svg";
+
+import HeadRedSvg from "@/public/man/HEAD_1_RED.svg";
+import ChestRedSvg from "@/public/man/CHEST_1_RED.svg";
+import LArmRedSvg from "@/public/man/L_ARM_1_RED.svg";
+import LLegRedSvg from "@/public/man/L_LEG_1_RED.svg";
+import RLegRedSvg from "@/public/man/R_LEG_1_RED.svg";
+
 import Link from "next/link";
 import Image from "next/image";
 
 import { useEffect, useState } from "react";
 
-function Man() {
+function Man({
+  armsFlag,
+  headFlag,
+  chestFlag,
+  legsFlag,
+}: {
+  armsFlag: boolean;
+  headFlag: boolean;
+  chestFlag: boolean;
+  legsFlag: boolean;
+}) {
 	return (
-		<div className="relative flex justify-center items-center">
+		<div className="relative flex justify-center items-center opacity-0 animate-fade delay-400">
 			{/* Chest as the central element */}
 			<Link
 				href="/game/minigames/chest"
@@ -20,7 +43,7 @@ function Man() {
 			>
 				<div className="relative xl:w-[10vw] xl:h-[10vw] lg:w-[20vw] lg:h-[20vw] w-[22vw] h-[22vw]">
 					<Image
-						src={ChestSvg}
+						src={chestFlag ? ChestGreenSvg : ChestRedSvg}
 						alt="Chest"
 						layout="fill"
 						objectFit="contain"
@@ -40,7 +63,7 @@ function Man() {
 			>
 				<div className="relative xl:w-[10vw] xl:h-[10vw] lg:w-[20vw] lg:h-[20vw] w-[22vw] h-[22vw]">
 					<Image
-						src={HeadSvg}
+						src={headFlag ? HeadGreenSvg : HeadRedSvg}
 						alt="Head"
 						layout="fill"
 						objectFit="contain"
@@ -60,7 +83,7 @@ function Man() {
 			>
 				<div className="relative xl:w-[10vw] xl:h-[10vw] lg:w-[20vw] lg:h-[20vw] w-[22vw] h-[22vw]">
 					<Image
-						src={LArmSvg}
+						src={armsFlag ? LArmGreenSvg : LArmRedSvg}
 						alt="Left Arm"
 						layout="fill"
 						objectFit="contain"
@@ -80,7 +103,7 @@ function Man() {
 			>
 				<div className="relative xl:w-[10vw] xl:h-[10vw] lg:w-[20vw] lg:h-[20vw] w-[22vw] h-[22vw]">
 					<Image
-						src={LArmSvg}
+						src={armsFlag ? LArmGreenSvg : LArmRedSvg}
 						alt="Right Arm"
 						layout="fill"
 						objectFit="contain"
@@ -100,7 +123,7 @@ function Man() {
 			>
 				<div className="relative xl:w-[10vw] xl:h-[10vw] lg:w-[20vw] lg:h-[20vw] w-[22vw] h-[22vw] ">
 					<Image
-						src={LLegSvg}
+						src={legsFlag ? RLegGreenSvg : RLegRedSvg}
 						alt="Left Leg"
 						layout="fill"
 						objectFit="contain"
@@ -120,7 +143,7 @@ function Man() {
 			>
 				<div className="relative xl:w-[10vw] xl:h-[10vw] lg:w-[20vw] lg:h-[20vw] w-[22vw] h-[22vw]">
 					<Image
-						src={RLegSvg}
+						src={legsFlag ? LLegGreenSvg : LLegRedSvg}
 						alt="Right Leg"
 						layout="fill"
 						objectFit="contain"
@@ -148,25 +171,17 @@ export default function MainSection() {
 	return (
 		<div className="min-h-screen w-full flex flex-col items-center justify-center bg-primary-700 text-white">
 			<div className="absolute top-20 flex flex-col justify-center lg:mb-0 mx-auto text-center p-5">
-				<h1 className="text-2xl font-black text-primary-400 text-nowrap">
+				<h1 className="text-2xl lg:text-4xl font-black text-primary-400 text-nowrap opacity-0 animate-fade">
 					SAUVEZ LE NAUFRAGÉ
 				</h1>
 
-				<p className="text-white">
-					Cliquez sur une partie du corps du naufragé pour lancer un
+				<p className="text-white text-lg lg:text-xl opacity-0 animate-fade delay-200">
+					Cliquez sur une partie malade du corps du naufragé pour lancer un
 					mini-jeu
 				</p>
-
-				<div className="flex gap-5">
-					display flags :
-          <p>HEAD : {headFlag ? "true" : "false"}</p>
-          <p>CHEST : {chestFlag ? "true" : "false"}</p>
-          <p>ARMS : {armsFlag ? "true" : "false"}</p>
-          <p>LEGS : {legsFlag ? "true" : "false"}</p> 
-				</div>
 			</div>
 
-			<Man />
+			<Man armsFlag={armsFlag} headFlag={headFlag} chestFlag={chestFlag} legsFlag={legsFlag} />
 		</div>
 	);
 }
