@@ -165,6 +165,10 @@ export default function MainSection() {
 		window.localStorage.getItem("headFlag") === "1" && setHeadFlag(true);
 		window.localStorage.getItem("chestFlag") === "1" && setChestFlag(true);
 		window.localStorage.getItem("legsFlag") === "1" && setLegsFlag(true);
+
+    if (armsFlag && headFlag && chestFlag && legsFlag) {
+      window.location.href = "/game/ending";
+    }
 	}, []);
 
 	return (
