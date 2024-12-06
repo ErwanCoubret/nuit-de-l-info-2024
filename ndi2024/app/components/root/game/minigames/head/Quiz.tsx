@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Question from "./Question";
+import Image from "next/image";
 
 function GoodEnd({ score }: { score: number }) {
 	useEffect(() => {
@@ -77,7 +78,15 @@ export default function Quiz() {
 
 	return (
 		<section className="w-full min-h-screen flex flex-col items-center justify-center bg-primary-500">
-			<div className="w-full max-w-3xl">
+			<div className="w-full flex flex-col justify-center items-center max-w-3xl p-5">
+				<Image
+					src={"/Cerveau.png"}
+					alt="Brain"
+                    width={384}
+                    height={384}
+					objectFit="absolute w-96 h-96 mx-auto w-full"
+				/>
+
 				{/* Affichage de la question */}
 				{currentQuestion < 7 && (
 					<Question

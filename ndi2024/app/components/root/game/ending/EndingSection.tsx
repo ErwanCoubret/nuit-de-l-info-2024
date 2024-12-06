@@ -6,11 +6,7 @@ import { useEffect } from "react";
 
 export default function EndingSection() {
     useEffect(() => {
-		// Réinitialiser les flags dans le localStorage
-		window.localStorage.setItem("flagArms", "0");
-		window.localStorage.setItem("flagHead", "0");
-		window.localStorage.setItem("flagLegs", "0");
-		window.localStorage.setItem("flagChest", "0");
+		window.localStorage.clear();
 	}, []);
     
 	return (
